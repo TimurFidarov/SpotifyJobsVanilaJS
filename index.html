@@ -12,7 +12,7 @@
 
 <header>
 	<div class="header">
-		<a href="/"><img src="img/logo.svg" alt="logo"></a>
+		<a href="/"><img src="img/logo.svg" alt="logo" class="head-logo"></a>
 		<ul class="list main-nav flex">
 			<li><a href="#">Locations</a></li>
 			<li><a href="#">Categories</a></li>
@@ -25,24 +25,37 @@
 	</div>
 </header>
 
-
-
 <main>
 	<section class="first-section">
-		<div>
-			<div><span>325</span> jobs in <span>19</span> locations</div>
-			<h1>
-				Join the band
-			</h1>
-			<button>explore all jobs</button>
+		<div class="container first-section_jobs-count">
+			<div class="row ">
+				<div class="col-24 ">
+					<div><p><span>324</span> jobs in <span>19</span> locations</p></div>
+					<h1>
+						Join the band
+					</h1>
+					<div>
+						<button class="btn">Explore all jobs</button>
+					</div>
+				</div>
+			</div>
 		</div>
 
-		<div>
-			<img src="" alt="search">
-			<form action="">
-				<input type="text">
-			</form>
-			<div><button></button></div>
+		<div class="container mb-60">
+			<div class="row">
+				<div class="col-24">
+					<div class="head-search-container">
+						<div class="head-search">
+							<img src="img/icons/search.svg" alt="search">
+							<form action="" class="search-form">
+								<input class="search-input" aria-label="Search for jobs" placeholder="Search jobs and keywords" type="text">
+							</form>
+							<div><button class="search-btn arrow-filled"></button></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</section>
 
