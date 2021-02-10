@@ -67,16 +67,6 @@ input::placeholder {
   display: flex;
 }
 
-.arrow-filled {
-  background: #ffffff url('../img/icons/right-arrow.svg') no-repeat;
-  background-position: 50%;
-  border: 1px solid #ffffff;
-  outline: none;
-  cursor: pointer;
-  width: 60px;
-  height: 60px;
-}
-
 .btn {
   background-color: #191414;
   border-radius: 100px;
@@ -101,6 +91,18 @@ input::placeholder {
 .btn:active {
   outline: none;
 }
+
+.arrow-filled {
+  background: #ffffff url('../img/icons/right-arrow.svg') no-repeat;
+  background-position: 50%;
+  border: 1px solid #ffffff;
+  outline: none;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+}
+
+
 
 .row {
   box-sizing: border-box;
@@ -593,4 +595,71 @@ header {
   background-size: 16px 12px;
   border-radius: 50%;
   transform: rotate(-45deg);
+}
+
+.quick-clicks-section {
+  padding: 120px 0;
+  min-height: 100vh;
+}
+
+.quick-clicks-title {
+  text-align: center;
+  line-height: 110%;
+  letter-spacing: -.02em;
+  font-size: 3.625rem;
+  margin-bottom: 60px;
+}
+
+.quick-clicks-item {
+  border-radius: 100px;
+  padding: 30px;
+  padding-left: 40px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgba(16,16,24,.12);
+  align-items: center;
+}
+
+.quick-clicks-item:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.quick-clicks-item:hover {
+  transition: border-color .25s ease;
+  border-color: #191414;
+}
+
+.quick-clicks-item:hover button {
+  transition: border-color .25s ease;;
+  transform: translateX(-12px);
+}
+
+.quick-clicks-item_text {
+  padding-block: 20px;
+  color: rgba(16,16,24,.6);
+  line-height: 140%;
+  font-size: 2.375rem;
+  letter-spacing: -.02em;
+  margin: 0;
+}
+
+.quick-clicks-item_text span {
+  color: #191414;
+  font-weight: 400;
+}
+
+.quick-clicks-item .arrow-filled {
+  background-color: #191414;
+  background-image: url("../img/icons/arrow-white.svg");
+  background-repeat: no-repeat;
+  border: 1px solid #191414;
+  border-radius: 50%;
+  outline: none;
+}
+
+
+.quick-clicks-item:hover .arrow-filled {
+  transition: all .25s ease;
+  background-color: white;
+  background-image: url("../img/icons/right-arrow.svg");
 }
