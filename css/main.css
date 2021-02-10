@@ -23,6 +23,10 @@ h1, h2 {
   font-weight: 400;
 }
 
+.p-relative {
+  position: relative;
+}
+
 .mb-40 {
   margin-bottom: 40px;
 }
@@ -445,6 +449,144 @@ header {
 
 .slide-anchor-wrapper_active .carousel-slide_job-city {
   color: #191414;
+}
+
+.third-section {
+  padding-bottom: 120px;
+  min-height: 100vh;
+}
+
+.doodle {
+  position: absolute;
+}
+
+.third-section_doodle-1 {
+  top: 110px;
+  left: 0;
+}
+
+.third-section_doodle-2 {
+  right: 60px;
+  bottom: -57px;
+}
+
+.greeting {
+  padding-top: 120px;
+  text-align: center;
+  transition: color 0.45s;
+  margin-left: 25%;
+}
+
+.greeting-head {
+  font-size: 3.625rem;
+  letter-spacing: -0.02em;
+  line-height: 110%;
+  margin-bottom: 20px;
+}
+
+.greeting-text {
+  margin: 0;
+  font-size: 1.625rem;
+  line-height: 150%;
+  text-align: center;
+}
+
+.greeting-btn-wrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.fresh-content-section {
+  padding-bottom: 120px;
+  padding-top: 120px;
+  min-height: 100vh;
+}
+
+.mb-70 {
+  margin-bottom: 70px;
+}
+
+.fresh-content-head {
+  line-height: 110%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  font-size: 3.625rem;
+}
+
+.fresh-content-section .swiper-slide {
+  width: 100%;
+  max-width: 413px;
+  box-sizing: border-box;
+}
+
+.fresh-content-section .swiper-slide:not(:last-child) {
+  margin-right: 40px;
+}
+
+.card-container {
+  display: flex;
+  padding: 30px;
+  min-height: 525px;
+  flex-direction: column;
+  max-width: 413px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.fresh-content-section .card-container {
+  background-color: #006450;
+  border-radius: 20px;
+}
+
+.tag-container {
+  justify-content: flex-start;
+  display: flex;
+}
+
+.tag-text-container {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 10px 15px;
+  border-radius: 100px;
+  display: inline-block;
+}
+
+.tag-text-container p {
+  letter-spacing: 0.01em;
+  font-size: 1.125rem;
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.card-body {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 2.375rem;
+  letter-spacing: -0.02em;
+  margin: 0;
+  margin-top: 40px;
+  flex-grow: 1;
+}
+
+.card-footer {
+  display: flex;
+  align-self: flex-start;
+  color: #fff;
+  font-size: 1.375rem;
+  align-items: center;
+  background-color: transparent;
+}
+
+.card-footer:after {
+  content: "";
+  display: inline-block;
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  background: url("../img/icons/right-arrow.svg") no-repeat 50% #ffffff;
+  background-size: 16px 12px;
+  border-radius: 50%;
+  transform: rotate(-45deg);
 }
 
 /*# sourceMappingURL=main.css.map */
