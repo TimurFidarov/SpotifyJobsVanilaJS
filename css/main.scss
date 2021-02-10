@@ -27,6 +27,10 @@ h1, h2 {
   position: relative;
 }
 
+.mt-1 {
+  margin-top: 150px;
+}
+
 .mb-40 {
   margin-bottom: 40px;
 }
@@ -41,6 +45,10 @@ h1, h2 {
 
 .mb-60 {
   margin-bottom: 60px;
+}
+
+.mt-70 {
+  margin-top: 70px;
 }
 
 a, a:hover, a:focus, a:active {
@@ -82,6 +90,11 @@ input::placeholder {
   transition: all .2s ease;
 }
 
+.btn-white {
+  border: 1px solid #fff;
+  background-color: transparent;
+}
+
 .btn:hover {
   background: transparent;
   color: #191414;
@@ -92,6 +105,18 @@ input::placeholder {
   outline: none;
 }
 
+.btn-white {
+  border: 1px solid #fff;
+}
+
+.btn-white:hover {
+  background-color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .arrow-filled {
   background: #ffffff url('../img/icons/right-arrow.svg') no-repeat;
   background-position: 50%;
@@ -100,9 +125,8 @@ input::placeholder {
   cursor: pointer;
   width: 60px;
   height: 60px;
+  border-radius: 50%;
 }
-
-
 
 .row {
   box-sizing: border-box;
@@ -112,6 +136,15 @@ input::placeholder {
   flex-wrap: wrap;
   margin-left: -20px;
   margin-right: -20px;
+}
+
+.col-4 {
+  flex: 0 0 auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  flex-basis: 16.666667%;
+  max-width: 16.666667%;
 }
 
 .col-24 {
@@ -663,3 +696,113 @@ header {
   background-color: white;
   background-image: url("../img/icons/right-arrow.svg");
 }
+
+footer {
+  background: #000;
+  padding: 160px 0 60px;
+  position: relative;
+  color: white;
+  z-index: 1;
+}
+
+.footer_window-icon-container {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-left: 41.6666667%;
+}
+
+.window-icon-container img {
+  width: 120px;
+  height: auto;
+}
+
+.col-offset-6 {
+  margin-left: 25%;
+}
+
+.footer-about-hiring_title {
+  letter-spacing: -.02em;
+  font-size: 3.625rem;
+  margin-bottom: 20px;
+  line-height: 110%;
+  text-align: center;
+}
+
+.footer-about-hiring_text {
+  line-height: 150%;
+  font-size: 1.545rem;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-about-hiring_btns-wrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-about-hiring_btns-wrapper .btn:not(:last-child) {
+  margin-right: 25px;
+}
+
+.footer_list-wrapper span {
+  display: block;
+  margin-bottom: 20px;
+  line-height: 150%;
+  color: #ffffff;
+  font-weight: 400;
+  letter-spacing: .01em;
+  font-size: 1.125rem;
+}
+
+.footer_list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: .01em;
+  max-height: 214px;
+}
+
+.footer_list li {
+  border-bottom: 1px solid transparent;
+  font-weight: 400;
+  color: hsla(0,0%,100%,.6);
+}
+
+.footer_list li:hover {
+  transition: color .2s ease,border-bottom .2s ease;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.footer_list a:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.footer_bottom-list {
+  flex-direction: row;
+}
+
+.footer_bottom-list li{
+  font-size: .875rem;
+  line-height: 150%;
+}
+
+.footer_bottom-list  a:not(:last-child) {
+  margin: 0;
+  margin-right: 40px;
+}
+
+.footer_roll-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.footer_roll-btn .arrow-filled {
+  transform: rotate(-90deg);
+}
+
+
