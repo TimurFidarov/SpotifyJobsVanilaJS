@@ -1,64 +1,34 @@
 window.onload = function () {
-    let timeOut = 0;
-    function changeHeader () {
-        if(window.scrollY == 0) {
+
+    //functions
+
+    function changeHeader() {
+        if (window.scrollY == 0) {
             clearTimeout(timeOut);
             timeOut = 0;
             header.classList.remove('blurry-header');
             headLogo.src = 'img/logo.svg';
         } else {
-            if(!timeOut) {
-                timeOut = setTimeout(()=>{
+            if (!timeOut) {
+                timeOut = setTimeout(() => {
                     header.classList.add('blurry-header')
                     headLogo.src = 'img/black-logo.svg'
                 }, 700);
             }
         }
-        if(lastScrollY < window.scrollY) {
+        if (lastScrollY < window.scrollY) {
             lastScrollY = window.scrollY;
             window.requestAnimationFrame(function () {
                 header.style.transform = "translateY(-100%)";
             });
         }
-        if(lastScrollY > window.scrollY) {
+        if (lastScrollY > window.scrollY) {
             lastScrollY = window.scrollY;
             window.requestAnimationFrame(function () {
                 header.style.transform = "translateY(0%)";
             });
         }
     }
-
-    let headLogo = document.getElementById('head-logo');
-    let lastScrollY = 0;
-    let header = document.getElementById('header');
-
-    window.onscroll = function () {
-        changeHeader();
-    }
-
-
-
-
-    //Search elements
-
-    let searchContainer = document.getElementById('search-container')
-    let searchInput = document.getElementById('search-input');
-
-    searchContainer.onclick = function () {
-        searchInput.focus();
-    }
-    searchInput.onfocus = function () {
-        searchContainer.classList.add('head-search-container_focus');
-        searchContainer.getElementsByTagName('img')[0].src = 'img/icons/black-search.svg'
-    }
-    searchInput.onblur = function () {
-        searchInput.value = '';
-        searchContainer.classList.remove('head-search-container_focus');
-        searchContainer.getElementsByTagName('img')[0].src = 'img/icons/search.svg'
-    }
-
-
-    //Inspiration list
 
     function changeInspirationItem(wrapper, imgSrc, titleValue, textValue) {
         //Content
@@ -112,10 +82,6 @@ window.onload = function () {
         btn.classList.add('btn');
         btnWrapper.append(btn);
 
-
-
-
-
         //Fade animation
         wrapper.classList.add('fade-out');
 
@@ -126,6 +92,63 @@ window.onload = function () {
         }, 250);
 
     }
+
+    function changeBodyColor() {
+        let bodyHeight = document.body.clientHeight;
+        if (bodyHeight / 10 * 2 > window.scrollY) {
+            document.body.style.background = '#fff';
+            document.body.classList.remove('bg-dark-blue');
+
+        }
+        if (bodyHeight / 10 * 2 < window.scrollY && bodyHeight / 10 * 3 > window.scrollY) {
+            document.body.style.background = '';
+            document.body.classList.add('bg-dark-blue');
+        }
+        if (bodyHeight / 10 * 3 < window.scrollY && bodyHeight / 10 * 4 > window.scrollY) {
+            document.body.style.background = '#fff';
+            document.body.classList.remove('bg-dark-blue');
+        }
+        if (bodyHeight / 10 * 4 < window.scrollY && bodyHeight / 10 * 5 > window.scrollY) {
+            document.body.style.background = '#ffcdd2';
+        }
+        if (bodyHeight / 10 * 5 < window.scrollY) {
+            document.body.style.background = '#fff';
+        }
+    }
+
+
+    //Header animations
+    let timeOut = 0;
+    let headLogo = document.getElementById('head-logo');
+    let lastScrollY = 0;
+    let header = document.getElementById('header');
+
+    window.onscroll = function () {
+        changeHeader();
+        changeBodyColor();
+    }
+
+
+    //Search input animation
+
+    let searchContainer = document.getElementById('search-container')
+    let searchInput = document.getElementById('search-input');
+
+    searchContainer.onclick = function () {
+        searchInput.focus();
+    }
+    searchInput.onfocus = function () {
+        searchContainer.classList.add('head-search-container_focus');
+        searchContainer.getElementsByTagName('img')[0].src = 'img/icons/black-search.svg'
+    }
+    searchInput.onblur = function () {
+        searchInput.value = '';
+        searchContainer.classList.remove('head-search-container_focus');
+        searchContainer.getElementsByTagName('img')[0].src = 'img/icons/search.svg'
+    }
+
+
+    //Inspiration list animation
 
     let inspirationList = document.getElementById('inspiration-list').getElementsByTagName('li');
     inspirationList[0].onclick = function () {
@@ -174,5 +197,126 @@ window.onload = function () {
     }
 
 
+    //Featured jobs animation
 
+    //init sizing
+    function setSwiper(counter = 0, fast=null) {
+        swiperContainer = document.getElementById('swiper-container');
+        slideWidth = (document.body.clientWidth - insideBlockWidth * 3) / 2 + insideBlockWidth;
+        offsetSlide = (document.body.clientWidth - insideBlockWidth * 3) / 4;
+        slides.forEach((slide) => {
+            slideWidth = (swiperContainer.clientWidth - insideBlockWidth * 3) / 2 + insideBlockWidth;
+            slide.style.width = slideWidth + 'px';
+        });
+
+        if (fast)
+        {
+            swiperContainer.style.transition = 'none'
+            setTimeout(() => {
+                swiperContainer.style.transition = 'all 550ms ease 0s'
+            }, 100);
+        }
+
+        swiperContainer.style.transform = 'translate3d(' + ((slideWidth+20)*counter-offsetSlide) + 'px,0,0)';
+
+
+
+    }
+
+
+
+
+    let currentSlide = 3;
+
+
+
+    function activateSlide(noClear = false, next = null) {
+        if (!noClear) {
+            slides.forEach((slide) => {
+                slide.getElementsByTagName('a')[0].classList.remove('slide-anchor-wrapper_active');
+            });
+        }
+        if (next) {
+            if (currentSlide >= (slides.length-2))
+            {
+                currentSlide = 1;
+            }
+            currentSlide++;
+        } else {
+            if (currentSlide <= 1)
+            {
+                currentSlide = slides.length-2;
+            }
+            currentSlide--;
+        }
+        slides[currentSlide].getElementsByTagName('a')[0].classList.add('slide-anchor-wrapper_active');
+    }
+
+    //init swiper
+    let slides = document.querySelectorAll('.carousel-section .swiper-slide');
+    let insideBlockWidth = slides[0].getElementsByTagName('a')[0].offsetWidth;
+    let swiperContainer = document.getElementById('swiper-container');
+    let offsetSlide = (document.body.clientWidth - insideBlockWidth * 3) / 4;
+    let slideWidth = (document.body.clientWidth - insideBlockWidth * 3) / 2 + insideBlockWidth;
+    let itemsCount = slides.length;
+
+
+
+    let counter = -2;
+
+
+    setSwiper(counter, true);
+
+
+    //resize with window
+    window.onresize = function () {
+        setSwiper(counter, true);
+    }
+
+    //btns
+
+    let swipeLeftBtn = document.getElementById('swipe-left-btn');
+    let swipeRightBtn = document.getElementById('swipe-right-btn');
+
+
+    let throttle = false;
+
+    swipeLeftBtn.onclick = function () {
+        if (throttle) return false;
+        throttle = true;
+        setTimeout(() => throttle = false, 600);
+        counter++
+        activateSlide();
+
+        setSwiper(counter);
+
+        if (counter == 0) {
+            currentSlide = 5;
+            activateSlide(true);
+            setTimeout(()=>{
+                setSwiper(counter = -3, true);
+            }, 500);
+        }
+
+    }
+
+    swipeRightBtn.onclick = function () {
+        if (throttle) return false;
+        throttle = true;
+        setTimeout(() => throttle = false, 600);
+
+
+        activateSlide(null,true);
+
+        counter--;
+
+        setSwiper(counter);
+        if (counter == -3) {
+            currentSlide = 2;
+            activateSlide(true);
+            setTimeout(()=>{
+               setSwiper(counter = 0, true);
+            }, 500);
+        }
+    }
 }
