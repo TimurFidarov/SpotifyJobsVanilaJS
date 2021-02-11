@@ -298,6 +298,19 @@ header {
   border: 1px solid transparent;
 }
 
+.head-search-container_focus {
+  background-color: #ffffff;
+  border: 1px solid #000;
+}
+
+.head-search-container_focus .search-input {
+  color: #191414;
+}
+
+.head-search-container_focus .arrow-filled {
+  border-color: #191414;
+}
+
 .second-section {
   padding-top: 120px;
   padding-bottom: 120px;
@@ -336,6 +349,15 @@ header {
   margin-bottom: 20px;
 }
 
+.content-box {
+  opacity: 1;
+  transition: opacity 0.25s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
 .inspiration-text {
   font-size: 1.625rem;
   line-height: 150%;
@@ -371,6 +393,14 @@ header {
   left: 50%;
   margin-left: -5px;
   transform: scale(0);
+}
+
+.inspiration-list .active {
+  color: #191414;
+}
+
+.inspiration-list .active:after {
+  transform: scale(1);
 }
 
 .inspiration-list li:hover {
