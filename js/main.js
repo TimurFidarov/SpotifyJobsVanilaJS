@@ -380,4 +380,66 @@ window.onload = function () {
     };
 
 
+
+    //Header floating
+    function setTranslateInterval() {
+        intervalId = setInterval(function() {
+            let speed = 0.6;
+            let translation1 = translateCount1-- * speed;
+            let translation2 = translateCount2-- * speed;
+
+            floatDiv.style.transform = 'translateY('+translation1 + 'px)';
+            floatDiv2.style.transform = 'translateY('+translation2 + 'px)';
+            if ((translation1*-1) > (floatDiv.offsetHeight)) {
+                translateCount1 = 0;
+            };
+            if ((translation2*-1 ) > (floatDiv.offsetHeight)) {
+                translateCount2 = 0;
+            };
+        }, 5);
+    }
+
+
+
+
+    let floatDiv = document.getElementById('inner-1');
+    let floatDiv2 = document.getElementById('inner-2')
+
+    let intervalId = 0;
+    setTranslateInterval();
+
+    let translateCount1 = 0;
+    let translateCount2 = 0;
+
+
+
+    Array.prototype.forEach.call(floatDiv.getElementsByTagName('a'), a => {
+        a.onmouseover = function () {
+            clearInterval(intervalId);
+        }
+        a.onmouseout = function () {
+            setTranslateInterval();
+        }
+    });
+
+    Array.prototype.forEach.call(floatDiv2.getElementsByTagName('a'), a => {
+        a.onmouseover = function () {
+            clearInterval(intervalId);
+        }
+        a.onmouseout = function () {
+            setTranslateInterval();
+        }
+    });
+
+
+
+
+    //Rows float
+
+
+
+
+
+
+
 }
