@@ -100,18 +100,18 @@ window.onload = function () {
             document.body.classList.remove('bg-dark-blue');
 
         }
-        if (bodyHeight / 10 * 2 < window.scrollY && bodyHeight / 10 * 3 > window.scrollY) {
+        if (bodyHeight / 12 * 2 < window.scrollY && bodyHeight / 12 * 4 > window.scrollY) {
             document.body.style.background = '';
             document.body.classList.add('bg-dark-blue');
         }
-        if (bodyHeight / 10 * 3 < window.scrollY && bodyHeight / 10 * 4 > window.scrollY) {
+        if (bodyHeight / 12 *4 < window.scrollY && bodyHeight / 12 * 6 > window.scrollY) {
             document.body.style.background = '#fff';
             document.body.classList.remove('bg-dark-blue');
         }
-        if (bodyHeight / 10 * 4 < window.scrollY && bodyHeight / 10 * 5 > window.scrollY) {
+        if (bodyHeight / 12 * 6 < window.scrollY && bodyHeight / 12 * 7.5 > window.scrollY) {
             document.body.style.background = '#ffcdd2';
         }
-        if (bodyHeight / 10 * 5 < window.scrollY) {
+        if (bodyHeight / 12 * 7.5 < window.scrollY) {
             document.body.style.background = '#fff';
         }
     }
@@ -437,7 +437,65 @@ window.onload = function () {
     //Rows float
 
 
+    function FloatRow(row, rowDuplicate, vector= true) {
+        this.row = row;
+        this.vector = vector;
+        this.rowDuplicate = rowDuplicate;
+        this.interval = false;
+        this.translateRow = 0;
+        this.translateRowDuplicate = 0;
+        this.setRowsInterval = () => {
+            this.interval = setInterval( () => {
+                if (this.vector) {
+                    this.translateRow -= 0.03;
+                    this.translateRowDuplicate -= 0.03;
+                    if ( this.translateRow <=-100) this.translateRow = 100;
+                    if (this.translateRowDuplicate <= -200) this.translateRowDuplicate = 0;
 
+                    this.row.style.transform = 'translateX('+ this.translateRow + '%)';
+                    this.rowDuplicate.style.transform = 'translateX('+ this.translateRowDuplicate + '%)';
+                } else {
+                    this.translateRow += 0.02;
+                    this.translateRowDuplicate += 0.02;
+                    if ( this.translateRow >=100) this.translateRow = -100;
+                    if (this.translateRowDuplicate > 0) this.translateRowDuplicate = -200;
+                    this.row.style.transform = 'translateX('+ this.translateRow + '%)';
+                    this.rowDuplicate.style.transform = 'translateX('+ this.translateRowDuplicate + '%)';
+                }
+            }, 5);
+        };
+        this.setHoverAction = () => {
+            Array.prototype.forEach.call(this.row.getElementsByTagName('a'), a => {
+                a.onmouseover =  () => {
+                    clearInterval(this.interval);
+                }
+                a.onmouseout = () => {
+                    this.setRowsInterval();
+                }
+            });
+            Array.prototype.forEach.call(this.rowDuplicate.getElementsByTagName('a'), a => {
+                a.onmouseover =  () => {
+                    clearInterval(this.interval);
+                }
+                a.onmouseout = () => {
+                    this.setRowsInterval();
+                }
+            });
+        }
+        this.init = () => {
+            this.setRowsInterval();
+            this.setHoverAction();
+        }
+    }
+
+    let row1 = document.getElementById('row1');
+    let row2 = document.getElementById('row2');
+    let row3 = document.getElementById('row3');
+    let row4 = document.getElementById('row4');
+    new FloatRow(row1.querySelectorAll('.location-scroll_scroll')[0],row1.querySelectorAll('.location-scroll_scroll')[1]).init();
+    new FloatRow(row2.querySelectorAll('.location-scroll_scroll')[0],row2.querySelectorAll('.location-scroll_scroll')[1], false).init();
+    new FloatRow(row3.querySelectorAll('.location-scroll_scroll')[0],row3.querySelectorAll('.location-scroll_scroll')[1]).init();
+    new FloatRow(row4.querySelectorAll('.location-scroll_scroll')[0],row4.querySelectorAll('.location-scroll_scroll')[1], false).init();
 
 
 
