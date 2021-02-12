@@ -686,6 +686,19 @@ header {
   min-height: 100vh;
 }
 
+.fresh-content_swiper-container {
+  padding: 0 40px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.fresh-content_swiper-wrapper {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .mb-70 {
   margin-bottom: 70px;
 }
