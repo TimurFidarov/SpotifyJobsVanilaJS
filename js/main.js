@@ -285,6 +285,7 @@ window.onload = function () {
         if (throttle) return false;
         throttle = true;
         setTimeout(() => throttle = false, 600);
+
         counter++
         activateSlide();
 
@@ -305,17 +306,16 @@ window.onload = function () {
         throttle = true;
         setTimeout(() => throttle = false, 600);
 
-
+        counter--;
         activateSlide(null,true);
 
-        counter--;
 
         setSwiper(counter);
-        if (counter == -3) {
-            currentSlide = 2;
+        if (counter == -4) {
+            currentSlide = 3;
             activateSlide(true);
             setTimeout(()=>{
-               setSwiper(counter = 0, true);
+               setSwiper(counter = -1, true);
             }, 500);
         }
     }
@@ -384,7 +384,7 @@ window.onload = function () {
     //Header floating
     function setTranslateInterval() {
         intervalId = setInterval(function() {
-            let speed = 0.6;
+            let speed = 0.3;
             let translation1 = translateCount1-- * speed;
             let translation2 = translateCount2-- * speed;
 
