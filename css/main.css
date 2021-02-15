@@ -72,6 +72,10 @@ ol, ul {
   margin: 0;
 }
 
+section {
+  box-sizing: border-box;
+}
+
 button, input {
   overflow: visible;
   margin: 0;
@@ -469,6 +473,7 @@ header {
   line-height: 110%;
   font-size: 3.625rem;
   margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 .content-box {
@@ -539,6 +544,7 @@ header {
   padding-top: 120px;
   min-height: 100vh;
   background: transparent;
+  box-sizing: border-box;
 }
 
 .carousel-title-container {
@@ -835,6 +841,7 @@ header {
   padding-bottom: 120px;
   padding-top: 120px;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .fresh-content_swiper-container {
@@ -989,6 +996,7 @@ header {
 }
 
 .quick-clicks-item .arrow-filled {
+  transition: all 0.25s ease 0s;
   background-color: #191414;
   background-image: url("../img/icons/arrow-white.svg");
   background-repeat: no-repeat;

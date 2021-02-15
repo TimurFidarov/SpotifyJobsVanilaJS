@@ -200,7 +200,7 @@ window.onload = function () {
     //Featured jobs animation
 
     //init sizing
-    function setSwiper(counter = 0, fast=null) {
+    function setSwiper(counter = 0, fast= null) {
         swiperContainer = document.getElementById('swiper-container');
         slideWidth = (document.body.clientWidth - insideBlockWidth * 3) / 2 + insideBlockWidth;
         offsetSlide = (document.body.clientWidth - insideBlockWidth * 3) / 4;
@@ -287,16 +287,21 @@ window.onload = function () {
         setTimeout(() => throttle = false, 600);
 
         counter++
-        activateSlide();
+
+        setTimeout(() => {
+            activateSlide();
+        }, 550)
+
 
         setSwiper(counter);
 
         if (counter == 0) {
-            currentSlide = 5;
-            activateSlide(true);
+
             setTimeout(()=>{
+                currentSlide = 5;
+                activateSlide(true);
                 setSwiper(counter = -3, true);
-            }, 500);
+            }, 550);
         }
 
     }
@@ -307,16 +312,19 @@ window.onload = function () {
         setTimeout(() => throttle = false, 600);
 
         counter--;
-        activateSlide(null,true);
+        setTimeout(() => {
+            activateSlide(null,true);
+
+        },550);
 
 
         setSwiper(counter);
         if (counter == -4) {
-            currentSlide = 3;
-            activateSlide(true);
             setTimeout(()=>{
+                currentSlide = 3;
+                activateSlide(true);
                setSwiper(counter = -1, true);
-            }, 500);
+            }, 550);
         }
     }
 
